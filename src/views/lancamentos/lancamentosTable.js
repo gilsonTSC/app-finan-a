@@ -15,7 +15,7 @@ export default props => {
         )
     })
     return (
-        <div className="table table-hover">
+        <table className="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">Descrição</th>
@@ -29,6 +29,6 @@ export default props => {
             <tbody>
                 {rows}
             </tbody>
-        </div>
+        </table>
     )
 }

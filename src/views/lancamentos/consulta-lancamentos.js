@@ -31,7 +31,7 @@ class ConsultaLancamentos extends React.Component {
         ]
 
         const lancamento = [
-            {descricao: 'salario', valor: 5000, mes: 1, tipo: 'receita', status: 'efetivado'}
+            {id: 1, descricao: 'salario', valor: 5000, mes: 1, tipo: 'receita', status: 'efetivado'}
         ]
 
         return (
