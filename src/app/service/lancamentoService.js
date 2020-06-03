@@ -32,8 +32,16 @@ export default class LancamentoService extends ApiService {
         ]
     }
 
+    obterPorId(id){
+        return this.get(`/${id}`)
+    }
+
     salvar(Lancamento){
         return this.post('/', Lancamento);
+    }
+
+    atualizar(Lancamento){
+        return this.put(`/${Lancamento.id}`, Lancamento);
     }
 
     buscar(LancamentoFiltro) {
