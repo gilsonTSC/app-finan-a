@@ -20,7 +20,8 @@ class CadastroLancamentos extends React.Component {
         ano: '',
         tipo: '',
         status: '',
-        usuario: null
+        usuario: null,
+        atualizando: false
     }
 
     constructor(){
@@ -33,7 +34,7 @@ class CadastroLancamentos extends React.Component {
         if(params.id){
             this.service.obterPorId(params.id)
                 .then(response => {
-                    this.setState({...response.data})
+                    this.setState({...response.data, atualizando: true})
                 }).catch(error => {
                     messagens.mensagemErro(error.data)
                 })
@@ -83,7 +84,7 @@ class CadastroLancamentos extends React.Component {
         const meses = this.service.obterListaMeses();
 
         return (
-            <Card title="Cadastro de Lançamento">
+            <Card title={this.state.atualizando ? 'Atualizando lançamento' : 'Cadastro de Lançamento'}>
                  <div className="row">
                     <div className="col-md-12">
                         <FormGroup id="inputDescricao" label="Descrição: *">
@@ -152,8 +153,14 @@ class CadastroLancamentos extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-md-6">
-                        <button onClick={this.submit} type="button" className="btn btn-success">Salvar</button>
-                        <button onClick={this.atualizar} type="button" className="btn btn-primary">Atualizar</button>
+                        {
+                            this.state.atualizando ? 
+                                (
+                                    <button onClick={this.atualizar} type="button" className="btn btn-primary">Atualizar</button>
+                                ) : (
+                                    <button onClick={this.submit} type="button" className="btn btn-success">Salvar</button>
+                                )
+                        }
                         <button onClick={this.cancelar} type="button" className="btn btn-danger">Cancelar</button>
                     </div>
                 </div>
