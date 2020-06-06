@@ -2,7 +2,9 @@ import React from 'react';
 
 import Rotas from './rotas';
 import NavBar from '../components/navbar';
-import 'toastr/build/toastr.min.js';
+import ProvedorAutenticacao from './provedorAutenticacao'
+
+import 'toastr/build/toastr.min';
 
 import 'bootswatch/dist/flatly/bootstrap.css';
 import '../custom.css';
@@ -14,12 +16,12 @@ import 'primeicons/primeicons.css';
 
 function App() {
   return (
-    <>
+    <ProvedorAutenticacao>
       <NavBar/>
       <div className="container">
         <Rotas/>
       </div>
-    </>
+    </ProvedorAutenticacao>
   );
 }
 
